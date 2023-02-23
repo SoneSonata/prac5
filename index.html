@@ -9,14 +9,42 @@
         .container {
             border:5px solid red;
             min-height: 150px;
+            padding: 1rem;
+            
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 2px solid;
+            margin: 1rem;
         }
     </style>
 </head>
 <body>
     <h1>Dyamically create elements with Javascript</h1>
-    <button>Make Boxes</button>
+    <button class="mbutton">Make Boxes</button>
     <div class="container">
 
     </div>
+
+    <script>
+        //create shortcut references
+        const mbutton = document.querySelector('.mbutton');
+        
+        const container = document.querySelector('.container');
+
+        mbutton.addEventListener('click', (e) => {
+            for (let i=0; i < 100; i++) {
+                //make a box and add it to the container
+                const newBox = document.createElement('DIV');
+                    newBox.classList.add('box');
+                    container.append(newBox);
+            }
+        });
+        
+        
+
+    </script>
 </body>
 </html>
